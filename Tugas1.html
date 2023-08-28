@@ -64,6 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Tugas1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,7 +155,10 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 1 PPW : Crawling Data PTA Trunojoyo</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -323,7 +327,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -339,6 +345,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-requirement">Install Requirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crawling-data-pta">Crawling data PTA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">Import Data</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -350,6 +366,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tugas-1-ppw-crawling-data-pta-trunojoyo">
 <h1>Tugas 1 PPW : Crawling Data PTA Trunojoyo<a class="headerlink" href="#tugas-1-ppw-crawling-data-pta-trunojoyo" title="Permalink to this heading">#</a></h1>
+<section id="install-requirement">
+<h2>Install Requirement<a class="headerlink" href="#install-requirement" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>requests
@@ -381,6 +399,9 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 </div>
 </div>
+</section>
+<section id="crawling-data-pta">
+<h2>Crawling data PTA<a class="headerlink" href="#crawling-data-pta" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">header</span><span class="o">=</span><span class="p">{</span>
@@ -388,9 +409,9 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 <span class="p">}</span>
 <span class="c1">#Cari Berdasarkan</span>
 <span class="n">pencarian</span> <span class="o">=</span> <span class="s1">&#39;Prodi&#39;</span>
-<span class="n">kode</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">kode</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">pta_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">halaman</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">halaman</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">pencarian</span> <span class="o">==</span> <span class="s1">&#39;Fakultas&#39;</span><span class="p">:</span>
     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://pta.trunojoyo.ac.id/c_search/byfac/</span><span class="si">{</span><span class="n">kode</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">halaman</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
   <span class="k">elif</span> <span class="n">pencarian</span> <span class="o">==</span> <span class="s1">&#39;Prodi&#39;</span><span class="p">:</span>
@@ -405,7 +426,6 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
     <span class="n">Nama</span> <span class="o">=</span> <span class="n">span_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Penulis : &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">pembimbing1</span> <span class="o">=</span> <span class="n">span_elements</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Dosen Pembimbing I : &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
     <span class="n">pembimbing2</span> <span class="o">=</span> <span class="n">span_elements</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Dosen Pembimbing II :&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="c1"># pembimbing2 =</span>
     <span class="n">link</span> <span class="o">=</span> <span class="n">pta</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;gray button&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
     <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
     <span class="n">soup2</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
@@ -418,89 +438,89 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-3-fd9ba8840883&gt;</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="c1"># pembimbing2 =</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">link</span> <span class="o">=</span> <span class="n">pta</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;gray button&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">25</span>     <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">soup2</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">judul</span> <span class="o">=</span> <span class="n">pta</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nn">&lt;ipython-input-3-0d5b904710bb&gt;</span> in <span class="ni">&lt;cell line: 8&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">pembimbing2</span> <span class="o">=</span> <span class="n">span_elements</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;Dosen Pembimbing II :&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">link</span> <span class="o">=</span> <span class="n">pta</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;gray button&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">24</span>     <span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">soup2</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">judul</span> <span class="o">=</span> <span class="n">pta</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\r</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="sd"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="sd">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="sd"> </span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="sd">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="sd">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="sd">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="sd"> </span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="sd">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="sd">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="sd">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="sd">         return resp</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="sd">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="sd">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="sd">         # Total elapsed time of the request (approximately)</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">486</span><span class="s2">             resp = conn.urlopen(</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="s2">                 method=request.method,</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="s2">                 url=url,</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="sd">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">486</span><span class="sd">             resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="sd">                 method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="sd">                 url=url,</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2">             # Make the request on the HTTPConnection object</span>
-<span class="ne">--&gt; </span><span class="mi">790</span><span class="s2">             response = self._make_request(</span>
-<span class="g g-Whitespace">    </span><span class="mi">791</span><span class="s2">                 conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="sd">             # Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">790</span><span class="sd">             response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span><span class="sd">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="sd">                 method,</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">465</span><span class="s2">             # Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span><span class="s2">             try:</span>
-<span class="ne">--&gt; </span><span class="mi">467</span><span class="s2">                 self._validate_conn(conn)</span>
-<span class="g g-Whitespace">    </span><span class="mi">468</span><span class="s2">             except (SocketTimeout, BaseSSLError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">                 self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span><span class="sd">             # Trigger any extra validation we need to do.</span>
+<span class="g g-Whitespace">    </span><span class="mi">466</span><span class="sd">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">467</span><span class="sd">                 self._validate_conn(conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">468</span><span class="sd">             except (SocketTimeout, BaseSSLError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="sd">                 self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1090</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1091</span><span class="s2">         if conn.is_closed:</span>
-<span class="ne">-&gt; </span><span class="mi">1092</span><span class="s2">             conn.connect()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1093</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1094</span><span class="s2">         if not conn.is_verified:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1090</span><span class="sd">         # Force connect early to allow us to validate the connection.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1091</span><span class="sd">         if conn.is_closed:</span>
+<span class="ne">-&gt; </span><span class="mi">1092</span><span class="sd">             conn.connect()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1093</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1094</span><span class="sd">         if not conn.is_verified:</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">             )</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">642</span><span class="s2">         sock_and_verified = _ssl_wrap_socket_and_match_hostname(</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">             sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">             cert_reqs=self.cert_reqs,</span>
+<span class="g g-Whitespace">    </span><span class="mi">609</span><span class="sd">     def connect(self) -&gt; None:</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span><span class="sd">         sock: socket.socket | ssl.SSLSocket</span>
+<span class="ne">--&gt; </span><span class="mi">611</span><span class="sd">         self.sock = sock = self._new_conn()</span>
+<span class="g g-Whitespace">    </span><span class="mi">612</span><span class="sd">         server_hostname: str = self.host</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span><span class="sd">         tls_in_tls = False</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">_ssl_wrap_socket_and_match_hostname</span><span class="nt">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span><span class="s2">             server_hostname = normalized</span>
-<span class="g g-Whitespace">    </span><span class="mi">782</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">783</span><span class="s2">     ssl_sock = ssl_wrap_socket(</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="s2">         sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span><span class="s2">         keyfile=key_file,</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">203</span>             <span class="n">sock</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span>                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dns_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">     if ca_certs or ca_cert_dir or ca_cert_data:</span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">444</span><span class="s2">             context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span><span class="s2">         except OSError as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">446</span><span class="s2">             raise SSLError(e) from e</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="k">if</span> <span class="n">source_address</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>                 <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">source_address</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">73</span>             <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span>             <span class="c1"># Break explicitly a reference cycle</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>             <span class="n">err</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -516,7 +536,7 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1b853170-fbb3-4dbf-afcf-1d605a20be25" class="colab-df-container">
+  <div id="df-2abce5e2-9de8-4260-ab9c-0d2965c2c94c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -546,56 +566,111 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
   <tbody>
     <tr>
       <th>0</th>
-      <td>TELAAH KRITIS TENTANGPEMBERITAAN MEDIA MASSA T...</td>
-      <td>Andri Eka Sugiarto</td>
-      <td>Dr. Deni Setya Bagus Yuherawan, SH., MS</td>
-      <td>Gatoet Poernomo,SH.M.Hum</td>
-      <td>Jaminan akan kemerdekaan dan kebebasan pers di...</td>
-      <td>Jurusan Ilmu Hukum</td>
+      <td>Gerak Pekerja Pada Game Real Time Strategy Men...</td>
+      <td>Adi Chandra Laksono</td>
+      <td>Kurniawan Eka P, S.Kom., Msc</td>
+      <td>Arik Kurniawati, S.Kom., M.T.</td>
+      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
+      <td>Jurusan Teknik Informatika</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>PELAKSANAAN PENDAFTARAN TANAH UNTUK PERTAMA KA...</td>
-      <td>Agung Saiful Anam</td>
-      <td>Dr. Mufarrijul Ikhwan, SH.,M.Hum</td>
-      <td>Mishbahul Munir, SH., M.Hum</td>
-      <td>Pendaftaran tanah untuk pertama kali bertujuan...</td>
-      <td>Jurusan Ilmu Hukum</td>
+      <td>RANCANG BANGUN GAME PERAWATAN SAPI KARAPAN MEN...</td>
+      <td>NURRACHMAT</td>
+      <td>Arik Kurniawati, S.Kom., M.T.</td>
+      <td>Kurniawan Eka Permana, S.Kom., MSc.</td>
+      <td>Perkembangan game yang semakin pesat, memberik...</td>
+      <td>Jurusan Teknik Informatika</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>TRANSAKSI JUAL BELI MELALUI INTERNET PERSPEKTI...</td>
-      <td>Adityo Nugroho</td>
-      <td>Dr. Murni, SH.,M.Hum</td>
-      <td>Mishbahul Munir, SH., M.Hum</td>
-      <td>Salah satu bentuk kemajuan teknologi adalah ju...</td>
-      <td>Jurusan Ilmu Hukum</td>
+      <td>EKSTRAKSI FITUR BERBASIS TWO DIMENSIONAL LINEA...</td>
+      <td>Muhammad Choirur Rozi</td>
+      <td>Dr. Arif Muntasa, S.Si.,M.T</td>
+      <td>Fitri Damayanti, S.Kom.,M.kom</td>
+      <td>Sistem pengenalan wajah adalah suatu sistem un...</td>
+      <td>Jurusan Teknik Informatika</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>PELAKSANAAN MORATORIUM PENGIRIMAN TENAGA KERJA...</td>
-      <td>Yuliano Orgianus Landowero</td>
-      <td>Azizah, SH.,M.Hum</td>
-      <td>Devi Rahayu, SH.,M.Hum</td>
-      <td>Pelaksanaan terhadap kebijakan moratorium yang...</td>
-      <td>Jurusan Ilmu Hukum</td>
+      <td>IMPLEMENTASI  ALGORITMA PRIM  DAN DEPTH FIRST ...</td>
+      <td>M Khoiril Anwar</td>
+      <td>Cucun Very Angkoso, S.T., M.T.</td>
+      <td>Arik Kurniawati S. Kom., M.T.</td>
+      <td>Teknologi mobile game beroperating system open...</td>
+      <td>Jurusan Teknik Informatika</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>ASPEK PIDANA DALAM JUAL BELI OLI BEKAS KAPAL D...</td>
-      <td>NUR INDAH FENY SURYANTI</td>
-      <td>BOEDI MUSTIKO, SH., M.Hum</td>
-      <td>GATOET POERNOMO, SH., M.Hum</td>
-      <td>Oli bekas kapal merupakan oli sisa yang dihasi...</td>
-      <td>Jurusan Ilmu Hukum</td>
+      <td>Perancangan Sistem Informasi Badan Kepegawaian...</td>
+      <td>MALIKUL HAMZAH</td>
+      <td>Moch. Kautsar Sophan, S.Kom., M.MT.</td>
+      <td>Yeni Kustiyaningsih, S.Kom., M.Kom.</td>
+      <td>Kantor Badan Kepegawaian kota Bangkalan adalah...</td>
+      <td>Jurusan Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>SIMULASI LAMPU LALU LINTAS PADA SEBUAH PERSIMP...</td>
+      <td>Ahmad Afwan Arin</td>
+      <td>Dr. Indah Agustien S, S.Kom, M.Kom.</td>
+      <td>Bain Khusnul Khotimah, ST.,M.Kom.</td>
+      <td>Kemacetan lalu lintas merupakan masalah yang h...</td>
+      <td>Jurusan Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>Implementasi Jena dan SPARQL untuk Optimalisas...</td>
+      <td>Yanuari Dwi Prianto</td>
+      <td>Fika Hastarita R, ST., M.Eng</td>
+      <td>Iwan Santosa, ST., MT</td>
+      <td>Search engine saat ini menggunakan mekanisme t...</td>
+      <td>Jurusan Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI JURUSAN...</td>
+      <td>LEILY AULA RAHMAWATI</td>
+      <td>FIKA HASTARITA RACHMAN,S.T., M.Eng.</td>
+      <td>BAIN KHUSNUL KHOTIMAH, S.T., M.Kom.</td>
+      <td>Beragam jurusan yang ada pada SMKN 1 Buduran S...</td>
+      <td>Jurusan Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>PENGENALAN WAJAH MENGGUNAKAN EKSTRAKSI FITUR D...</td>
+      <td>Maulidiah Purnamasari</td>
+      <td>Rima Tri Wahyuningrum,S.T.,M.T.</td>
+      <td>Fitri Damayanti,S.Kom.,M.Kom.</td>
+      <td>Pada umumnya kemajuan teknologi untuk mendetek...</td>
+      <td>Jurusan Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>IMPLEMENTASI ALGORITMA ENKRIPSI AES UNTUK APLI...</td>
+      <td>Awang Maristyono</td>
+      <td>Cucun Very Angkoso, ST., M.T</td>
+      <td>Moch. Kautsar Sophan, S.Kom., M.MT</td>
+      <td>Pengiriman informasi Short Message Service (SM...</td>
+      <td>Jurusan Teknik Informatika</td>
     </tr>
   </tbody>
 </table>
+<p>145 rows × 6 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1b853170-fbb3-4dbf-afcf-1d605a20be25')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2abce5e2-9de8-4260-ab9c-0d2965c2c94c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -647,12 +722,12 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1b853170-fbb3-4dbf-afcf-1d605a20be25 button.colab-df-convert');
+        document.querySelector('#df-2abce5e2-9de8-4260-ab9c-0d2965c2c94c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1b853170-fbb3-4dbf-afcf-1d605a20be25');
+        const element = document.querySelector('#df-2abce5e2-9de8-4260-ab9c-0d2965c2c94c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -672,8 +747,8 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
   </div>
 
 
-<div id="df-9b32d584-3afb-475c-a342-266b94fbe94f">
-  <button class="colab-df-quickchart" onclick="quickchart('df-9b32d584-3afb-475c-a342-266b94fbe94f')"
+<div id="df-e14fa4ee-f046-4a10-b694-33a1b0e9b477">
+  <button class="colab-df-quickchart" onclick="quickchart('df-e14fa4ee-f046-4a10-b694-33a1b0e9b477')"
             title="Suggest charts."
             style="display:none;">
 
@@ -724,7 +799,7 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-9b32d584-3afb-475c-a342-266b94fbe94f button');
+        document.querySelector('#df-e14fa4ee-f046-4a10-b694-33a1b0e9b477 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -734,6 +809,17 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
   </div>
 </div></div>
 </div>
+</section>
+<section id="import-data">
+<h2>Import Data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frame_pta</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;DataPTAInformatika.csv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -767,6 +853,15 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -776,6 +871,22 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-requirement">Install Requirement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crawling-data-pta">Crawling data PTA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">Import Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
