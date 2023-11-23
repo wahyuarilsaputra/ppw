@@ -408,7 +408,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">PageRank Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">PageRank Centrality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritma-pagerank">Algoritma Pagerank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-manual-perhitungan-pagerank">Contoh Manual perhitungan pagerank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-pagerank-menggunakan-latex">Rumus pagerank menggunakan latex</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rangking-kata-penting-dari-hasil-centrality">Rangking Kata Penting dari hasil Centrality</a></li>
 </ul>
             </nav>
@@ -472,7 +477,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-be29fa85-6fc7-4729-9aeb-bd362e916ae9" class="colab-df-container">
+  <div id="df-b2c9c60b-6f78-45b0-9ec4-cfd343899e09" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -570,7 +575,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-be29fa85-6fc7-4729-9aeb-bd362e916ae9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b2c9c60b-6f78-45b0-9ec4-cfd343899e09')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -622,12 +627,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-be29fa85-6fc7-4729-9aeb-bd362e916ae9 button.colab-df-convert');
+        document.querySelector('#df-b2c9c60b-6f78-45b0-9ec4-cfd343899e09 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-be29fa85-6fc7-4729-9aeb-bd362e916ae9');
+        const element = document.querySelector('#df-b2c9c60b-6f78-45b0-9ec4-cfd343899e09');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -713,100 +718,57 @@ dtype: int64
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading collection &#39;popular&#39;
 [nltk_data]    | 
 [nltk_data]    | Downloading package cmudict to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/cmudict.zip.
+[nltk_data]    |   Package cmudict is already up-to-date!
 [nltk_data]    | Downloading package gazetteers to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/gazetteers.zip.
+[nltk_data]    |   Package gazetteers is already up-to-date!
 [nltk_data]    | Downloading package genesis to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/genesis.zip.
+[nltk_data]    |   Package genesis is already up-to-date!
 [nltk_data]    | Downloading package gutenberg to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/gutenberg.zip.
+[nltk_data]    |   Package gutenberg is already up-to-date!
 [nltk_data]    | Downloading package inaugural to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/inaugural.zip.
+[nltk_data]    |   Package inaugural is already up-to-date!
 [nltk_data]    | Downloading package movie_reviews to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/movie_reviews.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package names to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/names.zip.
+[nltk_data]    |   Package movie_reviews is already up-to-date!
+[nltk_data]    | Downloading package names to /root/nltk_data...
+[nltk_data]    |   Package names is already up-to-date!
 [nltk_data]    | Downloading package shakespeare to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/shakespeare.zip.
+[nltk_data]    |   Package shakespeare is already up-to-date!
 [nltk_data]    | Downloading package stopwords to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/stopwords.zip.
+[nltk_data]    |   Package stopwords is already up-to-date!
 [nltk_data]    | Downloading package treebank to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/treebank.zip.
+[nltk_data]    |   Package treebank is already up-to-date!
 [nltk_data]    | Downloading package twitter_samples to
 [nltk_data]    |     /root/nltk_data...
+[nltk_data]    |   Package twitter_samples is already up-to-date!
+[nltk_data]    | Downloading package omw to /root/nltk_data...
+[nltk_data]    |   Package omw is already up-to-date!
+[nltk_data]    | Downloading package omw-1.4 to /root/nltk_data...
+[nltk_data]    |   Package omw-1.4 is already up-to-date!
+[nltk_data]    | Downloading package wordnet to /root/nltk_data...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/twitter_samples.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package omw to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package omw-1.4 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet2021 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet31 to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/wordnet_ic.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package words to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping corpora/words.zip.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Package wordnet is already up-to-date!
+[nltk_data]    | Downloading package wordnet2021 to /root/nltk_data...
+[nltk_data]    |   Package wordnet2021 is already up-to-date!
+[nltk_data]    | Downloading package wordnet31 to /root/nltk_data...
+[nltk_data]    |   Package wordnet31 is already up-to-date!
+[nltk_data]    | Downloading package wordnet_ic to /root/nltk_data...
+[nltk_data]    |   Package wordnet_ic is already up-to-date!
+[nltk_data]    | Downloading package words to /root/nltk_data...
+[nltk_data]    |   Package words is already up-to-date!
 [nltk_data]    | Downloading package maxent_ne_chunker to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping chunkers/maxent_ne_chunker.zip.
+[nltk_data]    |   Package maxent_ne_chunker is already up-to-date!
 [nltk_data]    | Downloading package punkt to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping tokenizers/punkt.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package snowball_data to
+[nltk_data]    |   Package punkt is already up-to-date!
+[nltk_data]    | Downloading package snowball_data to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    | Downloading package averaged_perceptron_tagger to
+[nltk_data]    |   Package snowball_data is already up-to-date!
+[nltk_data]    | Downloading package averaged_perceptron_tagger to
 [nltk_data]    |     /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]    |   Unzipping taggers/averaged_perceptron_tagger.zip.
+[nltk_data]    |   Package averaged_perceptron_tagger is already up-
+[nltk_data]    |       to-date!
 [nltk_data]    | 
 [nltk_data]  Done downloading collection popular
 </pre></div>
@@ -825,7 +787,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7b920e8b-db2c-4c4f-9cdb-9af72eca38bd" class="colab-df-container">
+  <div id="df-2106ec8a-78ea-4945-8279-8266e070d69a" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -880,7 +842,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7b920e8b-db2c-4c4f-9cdb-9af72eca38bd')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2106ec8a-78ea-4945-8279-8266e070d69a')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -932,12 +894,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7b920e8b-db2c-4c4f-9cdb-9af72eca38bd button.colab-df-convert');
+        document.querySelector('#df-2106ec8a-78ea-4945-8279-8266e070d69a button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7b920e8b-db2c-4c4f-9cdb-9af72eca38bd');
+        const element = document.querySelector('#df-2106ec8a-78ea-4945-8279-8266e070d69a');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1005,7 +967,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4a865a51-bf5b-4c27-834f-a045591873c0" class="colab-df-container">
+  <div id="df-3ce45f9a-1e4f-4937-bf36-760d788a3fcf" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1072,7 +1034,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4a865a51-bf5b-4c27-834f-a045591873c0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3ce45f9a-1e4f-4937-bf36-760d788a3fcf')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1124,12 +1086,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4a865a51-bf5b-4c27-834f-a045591873c0 button.colab-df-convert');
+        document.querySelector('#df-3ce45f9a-1e4f-4937-bf36-760d788a3fcf button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4a865a51-bf5b-4c27-834f-a045591873c0');
+        const element = document.querySelector('#df-3ce45f9a-1e4f-4937-bf36-760d788a3fcf');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1188,7 +1150,7 @@ dtype: int64
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-1bb8d954-901f-484e-bc02-3619fa4ca910" class="colab-df-container">
+  <div id="df-daa52495-3274-421b-9e7b-c2a1a428166b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1502,7 +1464,7 @@ dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1bb8d954-901f-484e-bc02-3619fa4ca910')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-daa52495-3274-421b-9e7b-c2a1a428166b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1554,12 +1516,12 @@ dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1bb8d954-901f-484e-bc02-3619fa4ca910 button.colab-df-convert');
+        document.querySelector('#df-daa52495-3274-421b-9e7b-c2a1a428166b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1bb8d954-901f-484e-bc02-3619fa4ca910');
+        const element = document.querySelector('#df-daa52495-3274-421b-9e7b-c2a1a428166b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1606,7 +1568,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/be3418b595c87af4d54c61d899595f07756963a77a313a399878a93d78c45a44.png" src="_images/be3418b595c87af4d54c61d899595f07756963a77a313a399878a93d78c45a44.png" />
+<img alt="_images/47613d9458aeb24c5becfd53ba670307323accd9d54f1cc2ba03277a90a4d7bd.png" src="_images/47613d9458aeb24c5becfd53ba670307323accd9d54f1cc2ba03277a90a4d7bd.png" />
 </div>
 </div>
 </section>
@@ -1642,6 +1604,14 @@ terlapor: 0.5263157894736842
 </section>
 <section id="pagerank-centrality">
 <h2>PageRank Centrality<a class="headerlink" href="#pagerank-centrality" title="Permalink to this heading">#</a></h2>
+<section id="algoritma-pagerank">
+<h3>Algoritma Pagerank<a class="headerlink" href="#algoritma-pagerank" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="contoh-manual-perhitungan-pagerank">
+<h3>Contoh Manual perhitungan pagerank<a class="headerlink" href="#contoh-manual-perhitungan-pagerank" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="rumus-pagerank-menggunakan-latex">
+<h3>Rumus pagerank menggunakan latex<a class="headerlink" href="#rumus-pagerank-menggunakan-latex" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pagerank</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
@@ -1669,6 +1639,7 @@ terlapor: 0.028134243720090595
 </div>
 </div>
 </section>
+</section>
 <section id="rangking-kata-penting-dari-hasil-centrality">
 <h2>Rangking Kata Penting dari hasil Centrality<a class="headerlink" href="#rangking-kata-penting-dari-hasil-centrality" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -1686,24 +1657,49 @@ terlapor: 0.028134243720090595
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranking_closeness</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">closeness_centrality</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ranking Kata pada dokumen ini:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kata Kunci dari berita diatas menggunakan closeness berdasarkan urutan (Rank):&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">closeness</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranking_closeness</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rank </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: Kata </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2"> nilai </span><span class="si">{</span><span class="n">closeness</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rank </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2"> nilai closeness </span><span class="si">{</span><span class="n">closeness</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ranking Kata pada dokumen ini:
-Rank 1: Kata hakim nilai 1.0
-Rank 2: Kata ketua nilai 0.7692307692307693
-Rank 3: Kata mk nilai 0.6666666666666666
-Rank 4: Kata mkmk nilai 0.6666666666666666
-Rank 5: Kata konstitusi nilai 0.625
-Rank 6: Kata putusan nilai 0.625
-Rank 7: Kata etik nilai 0.5555555555555556
-Rank 8: Kata jimly nilai 0.5555555555555556
-Rank 9: Kata hukum nilai 0.5263157894736842
-Rank 10: Kata pelanggaran nilai 0.5263157894736842
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata Kunci dari berita diatas menggunakan closeness berdasarkan urutan (Rank):
+Rank 1: hakim nilai closeness 1.0
+Rank 2: ketua nilai closeness 0.7692307692307693
+Rank 3: mk nilai closeness 0.6666666666666666
+Rank 4: mkmk nilai closeness 0.6666666666666666
+Rank 5: konstitusi nilai closeness 0.625
+Rank 6: putusan nilai closeness 0.625
+Rank 7: etik nilai closeness 0.5555555555555556
+Rank 8: jimly nilai closeness 0.5555555555555556
+Rank 9: hukum nilai closeness 0.5263157894736842
+Rank 10: pelanggaran nilai closeness 0.5263157894736842
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranking_pagerank</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pagerank</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kata Kunci dari berita diatas menggunakan pagerank berdasarkan urutan (Rank):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">pagerank</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ranking_pagerank</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rank </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">node</span><span class="si">}</span><span class="s2"> nilai Pagerank </span><span class="si">{</span><span class="n">pagerank</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata Kunci dari berita diatas menggunakan pagerank berdasarkan urutan (Rank):
+Rank 1: hakim nilai Pagerank 0.27290389111241725
+Rank 2: ketua nilai Pagerank 0.15270814369232177
+Rank 3: mk nilai Pagerank 0.10870842519213564
+Rank 4: mkmk nilai Pagerank 0.10870842519213564
+Rank 5: konstitusi nilai Pagerank 0.08492860826596063
+Rank 6: putusan nilai Pagerank 0.08492860826596063
+Rank 7: etik nilai Pagerank 0.049543348548932435
+Rank 8: jimly nilai Pagerank 0.049543348548932435
+Rank 9: pelanggaran nilai Pagerank 0.03175871374102233
+Rank 10: hukum nilai Pagerank 0.028134243720090595
 </pre></div>
 </div>
 </div>
@@ -1777,7 +1773,12 @@ Rank 10: Kata pelanggaran nilai 0.5263157894736842
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">Closeness Centrality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">PageRank Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank-centrality">PageRank Centrality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritma-pagerank">Algoritma Pagerank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-manual-perhitungan-pagerank">Contoh Manual perhitungan pagerank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-pagerank-menggunakan-latex">Rumus pagerank menggunakan latex</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rangking-kata-penting-dari-hasil-centrality">Rangking Kata Penting dari hasil Centrality</a></li>
 </ul>
   </nav></div>
