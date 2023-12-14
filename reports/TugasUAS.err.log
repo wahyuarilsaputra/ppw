@@ -30,8 +30,6 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-lda_model = LatentDirichletAllocation(n_components=100, doc_topic_prior=0.2, topic_word_prior=0.1, random_state=42)
-w1 = lda_model.fit_transform(df_countvect)
-h1 = lda_model.components_
+df_countvect.to_csv('dataCount.csv', index=False)
 -------------------
 
